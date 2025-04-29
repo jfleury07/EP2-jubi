@@ -1,1 +1,2 @@
-oi
+print ('oi')
+print ('Jubi')
