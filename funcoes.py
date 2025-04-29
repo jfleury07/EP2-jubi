@@ -8,8 +8,10 @@ def rolar_dados (dados):
     return dados_rolados
 
 def guardar_dado (dados_rolados, dados_guardados, indice_dado): 
-    lista = [dados_guardados]
     sequencia_desejada = dados_guardados[:]
     sequencia_desejada.append (dados_rolados[indice_dado])
+    del dados_rolados[indice_dado]
+    lista = [dados_rolados]
     lista.append (sequencia_desejada)
     return lista    
+
