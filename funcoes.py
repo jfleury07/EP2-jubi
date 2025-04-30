@@ -15,3 +15,15 @@ def guardar_dado (dados_rolados, dados_guardados, indice_dado):
     lista.append (sequencia_desejada)
     return lista    
 
+def remover_dado (dados_rolados, dados_guardados, indice_dado): 
+    dados_rolados.append (dados_guardados[indice_dado])
+    del dados_guardados [indice_dado]
+    lista = [dados_rolados, dados_guardados]
+    return lista
+
+dados_rolados =[2, 2, 2, 2]
+dados_no_estoque = [1]
+dado_para_remover = 0
+
+print (remover_dado(dados_rolados, dados_no_estoque, dado_para_remover))
+# tem que ser [[2, 2, 2, 2, 1], []]
