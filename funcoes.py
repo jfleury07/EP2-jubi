@@ -20,3 +20,11 @@ def remover_dado (dados_rolados, dados_guardados, indice_dado):
     del dados_guardados [indice_dado]
     lista = [dados_rolados, dados_guardados]
     return lista 
+
+
+def calcula_pontos_regra_simples (faces_dados_rolados):
+    for i in range(len(faces_dados_rolados)):
+        pontuaçao= i * len(faces_dados_rolados[i])
+        dicio= pontuaçao[i]
+
+    return dicio
