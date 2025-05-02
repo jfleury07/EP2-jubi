@@ -29,5 +29,3 @@ def calcula_pontos_regra_simples (face_dados_rolados):
         dicio[numero]= pontuaçao
 
     return dicio
-
-print(calcula_pontos_regra_simples([2, 3, 4, 5, 2]))
