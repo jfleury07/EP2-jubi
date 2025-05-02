@@ -29,3 +29,11 @@ def calcula_pontos_regra_simples (face_dados_rolados):
         dicio[numero]= pontuaçao
 
     return dicio
+
+
+def calcula_pontos_soma (face_dados_rolados):
+    soma=0
+    for numeros in face_dados_rolados:
+        soma+=numeros
+
+    return soma
