@@ -68,3 +68,25 @@ def calcula_pontos_sequencia_alta (lista_faces_dados):
         return 30 
     else: 
         return 0 
+    
+def calcula_pontos_full_house (lista_faces_dados): 
+    lista_faces_dados.sort ()
+    igual1 = igual2 = lista_faces_dados[0]
+    iguais1 = iguais2 = 1
+    for dado in range (len(lista_faces_dados)-1): 
+        if lista_faces_dados[dado+1] == igual1:
+            igual1 = lista_faces_dados[dado+1]
+            iguais1 += 1
+        else: 
+            igual2 = lista_faces_dados[dado+1]
+            if lista_faces_dados[dado] == igual2:
+                iguais2 += 1
+
+    soma = 0
+    if iguais1 == 3 and iguais2 == 2 or iguais1 == 2 and iguais2 == 3: 
+        for valor in lista_faces_dados: 
+            soma += valor
+        return soma
+    else: 
+        return 0 
+    
