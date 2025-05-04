@@ -90,3 +90,14 @@ def calcula_pontos_full_house (lista_faces_dados):
     else: 
         return 0 
     
+
+def calcula_pontos_quadra (lista_face_dados_rolados):
+    for i in lista_face_dados_rolados:
+        if lista_face_dados_rolados.count(i) >=4:
+            dado_sorteado=0
+            for valor in lista_face_dados_rolados:
+                dado_sorteado += valor
+            return dado_sorteado
+    return 0
+
+
