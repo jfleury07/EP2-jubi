@@ -56,3 +56,15 @@ def calcula_pontos_sequencia_baixa (lista_face_dados):
     else: 
         return 0 
     
+def calcula_pontos_sequencia_alta (lista_faces_dados):
+    lista_faces_dados.sort ()
+    sequencia = [lista_faces_dados[0]]
+    i = 0
+    while i < len(lista_faces_dados)-1: 
+        if lista_faces_dados[i+1] == sequencia[-1]+1: 
+            sequencia.append (lista_faces_dados[i+1])
+        i += 1
+    if len(sequencia) in [5, 6]: 
+        return 30 
+    else: 
+        return 0 
