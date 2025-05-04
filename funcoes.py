@@ -127,3 +127,12 @@ def calcula_pontos_quina (lista_faces_dados):
     else: 
         return 0 
 
+def calcula_pontos_regra_avancada (quina, quadra, full_house, seq_alta, seq_baixa, soma): 
+    dicio = {}
+    dicio['cinco_iguais'] = calcula_pontos_quina (quina)
+    dicio['full_house'] = calcula_pontos_full_house (full_house)
+    dicio['quadra'] = calcula_pontos_quadra (quadra)
+    dicio['sem_combinacao'] = calcula_pontos_soma (soma)
+    dicio['sequencia_alta'] = calcula_pontos_sequencia_alta (seq_alta)
+    dicio['sequencia_baixa'] = calcula_pontos_sequencia_baixa (seq_baixa)
+    return dicio
