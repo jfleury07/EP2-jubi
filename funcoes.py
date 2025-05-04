@@ -119,7 +119,7 @@ def calcula_pontos_regra_avancada (lista):
     return dicio
 
 def faz_jogada (dados, categoria, cartela_pontos): 
-    if categoria in calcula_pontos_regra_avancada: 
+    if categoria in calcula_pontos_regra_avancada.keys(): 
         calcula_pontos_regra_avancada [categoria] = calcula_pontos_regra_avancada [categoria] (dados)
         return calcula_pontos_regra_avancada
     else: 
