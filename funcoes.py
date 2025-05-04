@@ -51,7 +51,7 @@ def calcula_pontos_sequencia_baixa (lista_face_dados):
         if lista_face_dados[i+1] == lista_face_dados[i]+1:
             sequencia.append (lista_face_dados[i+1])
         i += 1
-    if len(sequencia) == 4: 
+    if len(sequencia) in [4, 5, 6]: 
         return 15 
     else: 
         return 0 
