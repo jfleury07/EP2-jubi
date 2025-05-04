@@ -100,39 +100,20 @@ def calcula_pontos_quadra (lista_face_dados_rolados):
             return dado_sorteado
     return 0
 
+def calcula_pontos_quina (lista_face_dados_rolados):
+    for i in lista_face_dados_rolados:
+        if lista_face_dados_rolados.count(i) >= 5:
+            for valor in lista_face_dados_rolados:
+                return 50
+    return 0
 
-# def calcula_pontos_quina (lista_face_dados_rolados):
-#     for i in lista_face_dados_rolados:
-#         if lista_face_dados_rolados.count(i) == 5:
-#             dado_sorteado=0
-#             for valor in lista_face_dados_rolados:
-#                 dado_sorteado += valor
-#             return dado_sorteado
-#     return 0
 
-def calcula_pontos_quina (lista_faces_dados):
-    lista_faces_dados.sort ()
-    dado = lista_faces_dados[0]
-    dados_iguais = 0
-    for dados in range(len(lista_faces_dados)-1):
-        if lista_faces_dados[dados+1] == dado:
-            dados_iguais += 1
-        else: 
-            dado = lista_faces_dados[dados+1]
-            dados_iguais = 0
-            if lista_faces_dados[dados+1] == dado:
-                dados_iguais += 1
-    if dados_iguais == 5: 
-        return 50
-    else: 
-        return 0 
-
-def calcula_pontos_regra_avancada (quina, quadra, full_house, seq_alta, seq_baixa, soma): 
+def calcula_pontos_regra_avancada (lista): 
     dicio = {}
-    dicio['cinco_iguais'] = calcula_pontos_quina (quina)
-    dicio['full_house'] = calcula_pontos_full_house (full_house)
-    dicio['quadra'] = calcula_pontos_quadra (quadra)
-    dicio['sem_combinacao'] = calcula_pontos_soma (soma)
-    dicio['sequencia_alta'] = calcula_pontos_sequencia_alta (seq_alta)
-    dicio['sequencia_baixa'] = calcula_pontos_sequencia_baixa (seq_baixa)
+    dicio['cinco_iguais'] = calcula_pontos_quina (lista)
+    dicio['full_house'] = calcula_pontos_full_house (lista)
+    dicio['quadra'] = calcula_pontos_quadra (lista)
+    dicio['sem_combinacao'] = calcula_pontos_soma (lista)
+    dicio['sequencia_alta'] = calcula_pontos_sequencia_alta (lista)
+    dicio['sequencia_baixa'] = calcula_pontos_sequencia_baixa (lista)
     return dicio
