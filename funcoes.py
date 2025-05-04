@@ -101,13 +101,29 @@ def calcula_pontos_quadra (lista_face_dados_rolados):
     return 0
 
 
-def calcula_pontos_quina (lista_face_dados_rolados):
-    for i in lista_face_dados_rolados:
-        if lista_face_dados_rolados.count(i) == 5:
-            dado_sorteado=0
-            for valor in lista_face_dados_rolados:
-                dado_sorteado += valor
-            return dado_sorteado
-    return 0
+# def calcula_pontos_quina (lista_face_dados_rolados):
+#     for i in lista_face_dados_rolados:
+#         if lista_face_dados_rolados.count(i) == 5:
+#             dado_sorteado=0
+#             for valor in lista_face_dados_rolados:
+#                 dado_sorteado += valor
+#             return dado_sorteado
+#     return 0
 
+def calcula_pontos_quina (lista_faces_dados):
+    lista_faces_dados.sort ()
+    dado = lista_faces_dados[0]
+    dados_iguais = 0
+    for dados in range(len(lista_faces_dados)-1):
+        if lista_faces_dados[dados+1] == dado:
+            dados_iguais += 1
+        else: 
+            dado = lista_faces_dados[dados+1]
+            dados_iguais = 0
+            if lista_faces_dados[dados+1] == dado:
+                dados_iguais += 1
+    if dados_iguais == 5: 
+        return 50
+    else: 
+        return 0 
 
