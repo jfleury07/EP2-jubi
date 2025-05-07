@@ -38,23 +38,27 @@ def calcula_pontos_soma (face_dados_rolados):
 
     return soma
 
-def calcula_pontos_sequencia_baixa (lista_face_dados):
-    lista_face_dados.sort ()
+def calcula_pontos_sequencia_baixa(lista_face_dados):
+    for i in range(len(lista_face_dados)):
+        for j in range(i + 1, len(lista_face_dados)):
+            if lista_face_dados[i] > lista_face_dados[j]:
+                lista_face_dados[i], lista_face_dados[j] = lista_face_dados[j], lista_face_dados[i]
     i = 0
-    while i < len(lista_face_dados) -1: 
-        if lista_face_dados[i+1] == lista_face_dados[i]:
-            del lista_face_dados [i]
-        i += 1
-    sequencia = [lista_face_dados[0]]
-    i = 0
-    while i < len(lista_face_dados) -1: 
-        if lista_face_dados[i+1] == sequencia[-1]+1:
-            sequencia.append (lista_face_dados[i+1])
-        i += 1
-    if len(sequencia) in [4, 5, 6]: 
-        return 15 
-    else: 
-        return 0 
+    while i < len(lista_face_dados) - 1:
+        if lista_face_dados[i] == lista_face_dados[i + 1]:
+            del lista_face_dados[i + 1]
+        else:
+            i += 1
+    sequencia = [lista_face_dados[0]] if lista_face_dados else []
+    for i in range(1, len(lista_face_dados)):
+        if lista_face_dados[i] == sequencia[-1] + 1:
+            sequencia.append(lista_face_dados[i])
+        elif lista_face_dados[i] != sequencia[-1]:
+            sequencia = [lista_face_dados[i]]  
+        if len(sequencia) >= 4:
+            return 15
+
+    return 0
     
 def calcula_pontos_sequencia_alta (lista_faces_dados):
     lista_faces_dados.sort ()
