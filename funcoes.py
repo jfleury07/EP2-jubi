@@ -38,28 +38,23 @@ def calcula_pontos_soma (face_dados_rolados):
 
     return soma
 
-def calcula_pontos_sequencia_baixa(lista_face_dados):
-    lista_sem_repetidos = []
-    for valor in lista_face_dados:
-        if valor not in lista_sem_repetidos:
-            lista_sem_repetidos.append(valor)
-    for i in range(len(lista_sem_repetidos)):
-        for j in range(i + 1, len(lista_sem_repetidos)):
-            if lista_sem_repetidos[i] > lista_sem_repetidos[j]:
-                lista_sem_repetidos[i], lista_sem_repetidos[j] = lista_sem_repetidos[j], lista_sem_repetidos[i]
-    max_seq = seq = 1
-    for i in range(1, len(lista_sem_repetidos)):
-        if lista_sem_repetidos[i] == lista_sem_repetidos[i - 1] + 1:
-            seq += 1
-            if seq > max_seq:
-                max_seq = seq
-        else:
-            seq = 1
-
-    if max_seq >= 4:
-        return 15
-    return 0
-
+def calcula_pontos_sequencia_baixa (lista_face_dados):
+    lista_face_dados.sort ()
+    i = 0
+    while i < len(lista_face_dados) -1: 
+        if lista_face_dados[i+1] == lista_face_dados[i]:
+            del lista_face_dados [i]
+        i += 1
+    sequencia = [lista_face_dados[0]]
+    i = 0
+    while i < len(lista_face_dados) -1: 
+        if lista_face_dados[i+1] == sequencia[-1]+1:
+            sequencia.append (lista_face_dados[i+1])
+        i += 1
+    if len(sequencia) in [4, 5, 6]: 
+        return 15 
+    else: 
+        return 0 
     
 def calcula_pontos_sequencia_alta (lista_faces_dados):
     lista_faces_dados.sort ()
