@@ -73,6 +73,9 @@ while rodadas <= 12:
             combinacao_valida = False
             while not combinacao_valida:
                 combinacao = input('Digite a combinação desejada:\n>')
+                while combinacao not in ['0', '1', '2', '3', '4']:
+                    print("Entrada inválida.")
+                    combinacao = input('Digite o índice do dado a ser guardado (0 a 4):\n>')
                 if combinacao in simples:
                     combinacao = int (combinacao)
                     if cartela['regra_simples'][combinacao] == -1:
@@ -94,6 +97,7 @@ while rodadas <= 12:
             break
 
         inicio_de_rodada += 1
+        print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
 
     inicio_de_rodada = 0
     rolagens = 1
