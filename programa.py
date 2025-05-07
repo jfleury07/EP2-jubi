@@ -1,6 +1,5 @@
 
 import random
-
 from funcoes import *
 
 cartela = {
@@ -29,19 +28,18 @@ rodadas = 1
 rolagens = 1
 inicio_de_rodada = 0
 while rodadas <= 12:
+    imprime_cartela(cartela)
     if inicio_de_rodada == 0:
         dados_rolados = rolar_dados(5)
         dados_guardados = []
 
     while True:
-        imprime_cartela(cartela)
         print(f'Dados rolados: {dados_rolados}')
         print(f'Dados guardados: {dados_guardados}')
-        print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
-        entrada = input('>')
+        entrada = input('Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:\n>')
         while entrada not in ['0', '1', '2', '3', '4']:
             print('Opção inválida. Tente novamente.')
-            entrada = input('>')
+            entrada = input('Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:\n>')
         acao = int(entrada)
 
         if acao == 1:
@@ -71,7 +69,7 @@ while rodadas <= 12:
                 print('Você já usou todas as rerrolagens.')
             else:
                 dados_rolados = rolar_dados(len(dados_rolados))
-                print(f'Dados rolados: {dados_rolados}')
+                print(f'Dados rerrolados: {dados_rolados}')
                 rolagens += 1
 
         elif acao == 4:
@@ -101,6 +99,7 @@ while rodadas <= 12:
             break
 
         inicio_de_rodada += 1
+        print("Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:")
 
     inicio_de_rodada = 0
     rolagens = 1
